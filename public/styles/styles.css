@@ -1,0 +1,203 @@
+/* Styles for Pythagora Lab application */
+
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Full width details section */
+.details-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+/* Styling for JSON data display */
+.json-data {
+    background-color: #eaeaea;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Collapsible JSON data */
+.collapsible-json {
+    cursor: pointer;
+}
+
+.collapsible-json-content {
+    display: none;
+    padding: 10px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Sticky table header */
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f9f9f9;
+    z-index: 10;
+}
+
+/* Highlight for rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    font-weight: bold;
+}
+
+/* Success message styling */
+.success-message {
+    color: green;
+    font-weight: bold;
+}
+
+/* Button styling */
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+/* Scrollable container for LLM requests details */
+.scrollable-container {
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 400px;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 1200px) {
+    .container.scrollable-container {
+        max-width: 90vw;
+    }
+}
+
+.expandable-container {
+    cursor: pointer;
+    background-color: #f9f9f9;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .details-container {
+        padding: 0 10px;
+    }
+
+    .json-data, .collapsible-json-content, .scrollable-container {
+        padding: 5px;
+    }
+}
+
+/* Additional styles for expandable JSON sections */
+.collapsible-json:hover, .collapsible-json:focus {
+    background-color: #ddd;
+}
+
+.collapsible-json-content {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+/* Styles moved from inline to CSS for diffSection */
+#diffSection {
+    display: none;
+    border: 2px solid red;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* New class for full-width table container */
+.table-full-width {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 1rem;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 767.98px) {
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (min-width: 768px) {
+    .container-fluid {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+/* Styles for the new four-column layout */
+.diff-container {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    position: relative;
+}
+
+.diff-column {
+    flex: 1;
+    padding: 5px;
+    border-right: 1px solid #ccc;
+}
+
+.line-number {
+    user-select: none;
+    color: #999;
+    padding-right: 10px;
+    text-align: right;
+}

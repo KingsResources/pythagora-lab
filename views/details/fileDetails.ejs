@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Details | Pythagora Lab</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+</head>
+<body>
+    <div class="">
+        <h2>File Details</h2>
+        <% if(details && details.length > 0) { %>
+            <% details.forEach(function(detail, index) { %>
+                <div class="card mb-3">
+                    <div id="collapse<%= index %>" class="collapse show" aria-labelledby="heading<%= index %>" data-parent="#accordion">
+                        <div class="card-body">
+                            <strong><%= detail.path %></strong><br><br>
+                            <% Object.keys(detail).forEach(function(key) { %>
+                                <% if(key === 'content') { %>
+                                    <div class="expandable-container" onclick="toggleVisibility('<%= key %>', '<%= index %>')">
+                                        <strong><%= key %>:</strong> (click to expand)
+                                    </div>
+                                    <div id="<%= key %>-<%= index %>" class="container scrollable-container hidden">
+                                        <pre><code><%
+                                              var output;
+                                              try {
+                                                output = JSON.stringify(JSON.parse(detail[key]), null, 2);
+                                              } catch (e) {
+                                                output = detail[key]; // Default to raw output if JSON parsing fails
+                                              }
+                                            %><%= output %></code></pre>
+                                    </div>
+                                <% } else if (key !== 'path') { %>
+                                    <strong><%= key %>:</strong> <%= detail[key] %><br>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No file details available.</p>
+        <% } %>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
